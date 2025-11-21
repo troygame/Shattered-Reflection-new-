@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState MoveState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; }
 
     private float _baseGravityScale;
 
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         MoveState = new PlayerMoveState(this, StateMachine);
         JumpState = new PlayerJumpState(this, StateMachine);
         FallState = new PlayerFallState(this, StateMachine);
+        AttackState = new PlayerAttackState(this, StateMachine);
     }
 
     private void Start()
@@ -81,6 +83,10 @@ public class Player : MonoBehaviour
 
         // Consume jump input after state logic
         JumpPressed = false;
+    }
+
+    public void Attack() {
+        Debug.Log("I am attacking");
     }
 
     private void FixedUpdate()
@@ -124,4 +130,6 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
+
+
 }

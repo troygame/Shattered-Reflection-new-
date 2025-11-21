@@ -23,6 +23,8 @@ public class PlayerFallState : PlayerState
     {
         base.LogicUpdate();
 
+
+
         if (player.IsGrounded)
         {
             if (Mathf.Abs(player.MoveInput) > 0.01f)

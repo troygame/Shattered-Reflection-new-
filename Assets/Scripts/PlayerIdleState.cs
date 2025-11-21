@@ -35,6 +35,9 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.FallState);
         }
+        else if (Input.GetMouseButtonDown(0)) {
+            stateMachine.ChangeState(player.AttackState);
+        }
     }
 
     public override void PhysicsUpdate()
